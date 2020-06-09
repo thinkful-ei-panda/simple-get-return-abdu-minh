@@ -15,14 +15,27 @@ function displayResults(responseJson) {
   $('.results').removeClass('hidden');
 }
 
-function watchForm() {
+/*function watchForm() {
   $('form').submit(event => {
     event.preventDefault();
     getDogImage();
   });
-}
+}*/
+
+function watchNewForm() {
+  $('form').submit(event => {
+    console.log($('.howMany').value);
+    event.preventDefault();
+    let howMany = $('.howMany').val();
+    for(let i = 0; i < howMany; i++) {
+      getDogImage();
+    }
+  });
+} 
+
+
 
 $(function() {
   console.log('App loaded! Waiting for submit!');
-  watchForm();
+  watchNewForm();
 });
