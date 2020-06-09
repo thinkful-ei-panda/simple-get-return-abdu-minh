@@ -11,10 +11,14 @@
 <body>
     <div class="container">
         <h1>Dog API: A Simple Example</h1>
-
         <form>
-          <input type="submit" value="Get a dog pic!">
+            <input class="howMany" type="number" placeholder="how many dogs" min="1" max="50" defaultValue="3" required>
+            <input type="submit" value="Show Images">
         </form>
+
+       <!-- <form>
+          <input type="submit" value="Get a dog pic!">
+        </form>-->
         <section class="results hidden">
           <h2>Look at this dog!</h2>
           <img class="results-img" alt="placeholder">
