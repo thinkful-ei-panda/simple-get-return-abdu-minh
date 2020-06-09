@@ -9,10 +9,15 @@ function getDogImage() {
 function displayResults(responseJson) {
   console.log(responseJson);
   //replace the existing image with the new one
-  $('.results-img').replaceWith(
+  $('.results').append(
     `<img src="${responseJson.message}" class="results-img">`);
+
   //display the results section
   $('.results').removeClass('hidden');
+}
+
+function clearImages() {
+  $('.results').empty();
 }
 
 /*function watchForm() {
@@ -24,7 +29,8 @@ function displayResults(responseJson) {
 
 function watchNewForm() {
   $('form').submit(event => {
-    console.log($('.howMany').value);
+    clearImages();
+    console.log($('.howMany').val());
     event.preventDefault();
     let howMany = $('.howMany').val();
     for(let i = 0; i < howMany; i++) {
@@ -36,6 +42,7 @@ function watchNewForm() {
 
 
 $(function() {
+  $('.howMany').val(3);
   console.log('App loaded! Waiting for submit!');
   watchNewForm();
 });
